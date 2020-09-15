@@ -3,6 +3,8 @@ const http = require('http');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const dishRouter = require('./routes/dishRouter');
+const leaderRouter = require('./routes/leaderRouter');
+const promotionRouter = require('./routes/promotionRouter');
 
 const hostname = 'localhost';
 const port = 3000;
@@ -17,6 +19,8 @@ app.use(bodyParser.json()); // will automatically parse body of the req to an ob
 ///////////////////////
 
 app.use('/dishes', dishRouter);
+app.use('/leaders', leaderRouter);
+app.use('/promotions', promotionRouter);
 
 app.use(express.static(__dirname + '/public')); // give it where it should reach the statis pages
 
